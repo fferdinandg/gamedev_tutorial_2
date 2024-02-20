@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="YouWin" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 3.0
+margin_right = 20.0
+margin_bottom = -1.0
+text = "YOU WIN"
+align = 1
+valign = 1
