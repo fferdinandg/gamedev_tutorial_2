@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/BlueShip.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/stone.png" type="Texture" id=3]
 [ext_resource path="res://scenes/ObjectiveArea.gd" type="Script" id=4]
+[ext_resource path="res://scenes/ResetArea.gd" type="Script" id=5]
 [ext_resource path="res://scenes/BlueShip.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 89.8438, 218.625 )
+extents = Vector2( 91.9219, 55.3125 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
@@ -34,6 +35,9 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 } ]
 0/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 91.5, 10 )
+
 [node name="MainLevel" type="Node"]
 
 [node name="PlatformBlue" type="Node2D" parent="."]
@@ -43,7 +47,7 @@ position = Vector2( 35, 565 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea"]
-position = Vector2( 1060.84, 290.625 )
+position = Vector2( 987, 322 )
 shape = SubResource( 1 )
 
 [node name="BlueShip" parent="." instance=ExtResource( 2 )]
@@ -56,6 +60,14 @@ script = ExtResource( 6 )
 position = Vector2( 0, -1 )
 tile_set = SubResource( 2 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 65536, 0, 0, 65545, 0, 0, 65550, 0, 0, 65554, 0, 0, 131072, 0, 0, 131081, 0, 0, 131086, 0, 0, 131090, 0, 0, 196608, 0, 0, 196613, 0, 0, 196617, 0, 0, 196622, 0, 0, 196626, 0, 0, 262144, 0, 0, 262149, 0, 0, 262153, 0, 0, 262162, 0, 0, 327680, 0, 0, 327685, 0, 0, 327689, 0, 0, 327698, 0, 0, 393216, 0, 0, 393221, 0, 0, 393230, 0, 0, 393234, 0, 0, 458752, 0, 0, 458757, 0, 0, 458766, 0, 0, 458770, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 65536, 0, 0, 65545, 0, 0, 65550, 0, 0, 65554, 0, 0, 131072, 0, 0, 131081, 0, 0, 131086, 0, 0, 131090, 0, 0, 196608, 0, 0, 196613, 0, 0, 196617, 0, 0, 196622, 0, 0, 196626, 0, 0, 262144, 0, 0, 262149, 0, 0, 262153, 0, 0, 262162, 0, 0, 327680, 0, 0, 327685, 0, 0, 327689, 0, 0, 327698, 0, 0, 393216, 0, 0, 393221, 0, 0, 393230, 0, 0, 393234, 0, 0, 458752, 0, 0, 458757, 0, 0, 458766, 0, 0, 458770, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0 )
+
+[node name="ResetArea" type="Area2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResetArea"]
+position = Vector2( 803.5, 570 )
+shape = SubResource( 5 )
 
 [connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]
+[connection signal="body_entered" from="ResetArea" to="ResetArea" method="_on_ResetArea_body_entered"]
