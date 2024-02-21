@@ -1,10 +1,10 @@
-##Latihan: Playtest
+## Latihan: Playtest
 
 1.  "Platform initialized"
 2.  "Reached objective!"
 3.  Ada
 
-##Latihan: Memanipulasi Node dan Scene
+## Latihan: Memanipulasi Node dan Scene
 1. Sprite adalah representasi visual dari objek
 2. StaticBody2D tidak dapat digerakkan oleh force eksternal, tetapi bisa digerakkan secara manual. RigidBody2D dipengaruhi oleh forces luar.
 3. Kecepatan turun dari gravitasi BlueShip tidak terpengaruhi karena kecepatan jatuh dipengaruhi oleh GravityScale. Perubahan terlihat saat BlueShip didorong dari RigidBody lainnya. Apabila mass dan weight lebih tinggi, maka akan lebih berat dan susah.
